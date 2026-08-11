@@ -40,9 +40,28 @@ class Solution {
             else{
                 low=mid+1;
             }
-          // Using elsw instead of else if prevents infite loop
+          // Using else instead of else-if prevents infinite loop
         }
         return -1;
+    }
+}
+
+// TC: O(log n)
+// SC: O(1)
+
+class Solution {
+    public int findPeakElement(int[] nums) {
+        int low = 0;
+        int high = nums.length - 1;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] < nums[mid + 1]) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return low;
     }
 }
 
